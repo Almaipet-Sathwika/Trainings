@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Portal</title>
+</head>
+<body>
+    <h2>📋 Registered Students</h2>
+    <a href="{{ url_for('add_student') }}">➕ Add New Student</a>
+    <table border="1" cellpadding="10">
+        <tr>
+            <th>ID</th><th>Name</th><th>Roll</th><th>Department</th><th>Email</th><th>Actions</th>
+        </tr>
+        {% for student in students %}
+        <tr>
+            <td>{{ student[0] }}</td>
+            <td>{{ student[1] }}</td>
+            <td>{{ student[2] }}</td>
+            <td>{{ student[3] }}</td>
+            <td>{{ student[4] }}</td>
+            <td><a href="{{ url_for('delete_student', student_id=student[0]) }}">🗑️ Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
